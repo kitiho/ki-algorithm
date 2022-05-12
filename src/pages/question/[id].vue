@@ -6,7 +6,7 @@ const route = useRoute()
 const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
 onMounted(async() => {
-  const { default: code } = await import(`../../constants/question-resolutions/${questionIndex}?raw`)
+  const { default: code } = await import(`../../constants/question-resolutions/${questionIndex}.ts?raw`)
   shiki.setCDN('/shiki/')
   const highlighter = await shiki.getHighlighter({
     theme: 'one-dark-pro',
