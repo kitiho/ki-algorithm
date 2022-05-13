@@ -5,20 +5,25 @@ const container = $ref<HTMLElement | null>(null)
 const route = useRoute()
 const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
+let code: any
+let a = $ref('')
 onMounted(async() => {
-  const code = import.meta.glob('../../constants/question-resolutions/*.ts', { as: 'raw' })[`../../constants/question-resolutions/${questionIndex}.ts`]
-  shiki.setCDN('/shiki/')
-  const highlighter = await shiki.getHighlighter({
-    theme: 'one-dark-pro',
-    themes: ['one-dark-pro'],
-    langs: ['javascript', 'typescript'],
-  })
-  const html = highlighter.codeToHtml(`${code}`, {
-    lang: 'javascript',
-    theme: 'one-dark-pro',
-  })
-  if (container)
-    container.innerHTML = html
+  code = import.meta.glob('../../constants/question-resolutions/*.ts', { as: 'raw' })
+  a = code[`../../constants/question-resolutions/${questionIndex}.ts`]
+  console.log(a)
+
+  // shiki.setCDN('/shiki/')
+  // const highlighter = await shiki.getHighlighter({
+  //   theme: 'one-dark-pro',
+  //   themes: ['one-dark-pro'],
+  //   langs: ['javascript', 'typescript'],
+  // })
+  // const html = highlighter.codeToHtml(`${code}`, {
+  //   lang: 'javascript',
+  //   theme: 'one-dark-pro',
+  // })
+  // if (container)
+  //   container.innerHTML = html
 })
 </script>
 <template>
@@ -34,7 +39,8 @@ onMounted(async() => {
         >{{ question?.link }}</a>
       </div>
       <div w-800px text-left rounded mt-6>
-        <div id="code" ref="container" text-left />
+        {{ a }}
+        <!-- <div id="code" ref="container" text-left /> -->
       </div>
     </div>
   </div>
