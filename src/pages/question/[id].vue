@@ -6,8 +6,11 @@ const container = $ref<HTMLElement | null>(null)
 const route = useRoute()
 const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
+let resolution = $ref('')
 onMounted(async() => {
-  const modules = import.meta.glob('../../constants/question-resolutions/*.ts', { as: 'raw' })
+  const modules = import.meta.glob('../../constants/question-resolutions/*/**.*', { as: 'raw' })
+  const code = modules[`../../constants/question-resolutions/${questionIndex}/code.ts`]
+  resolution = modules[`../../constants/question-resolutions/${questionIndex}/resolve.txt`] as any as string
   if (import.meta.env.DEV)
     shiki.setCDN('../../../node_modules/shiki/')
   else
@@ -20,7 +23,7 @@ onMounted(async() => {
     })
     .then((highlighter) => {
       if (container)
-        container.innerHTML = highlighter.codeToHtml(`${modules[`../../constants/question-resolutions/${questionIndex}.ts`]}`, 'typescript')
+        container.innerHTML = highlighter.codeToHtml(code as any as string, 'typescript')
     })
     .catch(console.warn)
 })
@@ -28,16 +31,28 @@ onMounted(async() => {
 <template>
   <div>
     <div>
-      <div text-2xl>
-        {{ question?.index }}. {{ question?.name }} {{ question?.englishName }}
+      <div text-4xl>
+        NO.{{ question?.index }} {{ question?.name }} {{ question?.englishName }}
       </div>
-      <div w-800px text-left bg="gray-500/60" rounded p2 leading-loose indent mt-6>
+      <div my-6 text-xl text-left flex="~" items-center>
+        <div i-carbon-link mr-2 /> LeetCode链接
+      </div>
+      <div w-800px text-left leading-loose bg="#282c34" rounded p4>
         <a
-          :href="question?.link
+          text-white :href="question?.link
           " target="_blank"
         >{{ question?.link }}</a>
       </div>
-      <div w-800px text-left rounded mt-6>
+      <div my-6 text-xl text-left flex="~" items-center>
+        <div i-carbon-hurricane mr-2 /> 题解
+      </div>
+      <div w-800px text-left rounded overflow-hidden bg="#282c34" p4 tracking-wide>
+        <pre>{{ resolution }}</pre>
+      </div>
+      <div my-6 text-xl text-left flex="~" items-center>
+        <div i-carbon-code mr-2 /> 代码
+      </div>
+      <div w-800px text-left rounded overflow-hidden>
         <div id="code" ref="container" text-left />
       </div>
     </div>
@@ -46,6 +61,6 @@ onMounted(async() => {
 
 <style>
 #code .shiki {
-  padding: 16px;
+  padding: 1rem;
 }
 </style>

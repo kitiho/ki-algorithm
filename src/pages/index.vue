@@ -4,8 +4,10 @@ import { leetCodeQuestions } from '~/constants'
 import { difficultyColor } from '~/constants/difficulty'
 function formatIndex(index: string) {
   if (parseInt(index) < 10)
-    return `0${index}`
-  return index
+    return `NO.00${index}`
+  if (parseInt(index) < 100)
+    return `NO.0${index}`
+  return `NO.${index}`
 }
 const router = useRouter()
 function pushTo(item: LeetCodeQuestion) {
