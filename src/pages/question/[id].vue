@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import * as shiki from 'shiki'
+import theme from 'shiki/themes/one-dark-pro.json'
 import { leetCodeQuestions } from '~/constants/questions'
 const container = $ref<HTMLElement | null>(null)
 const route = useRoute()
@@ -7,18 +8,16 @@ const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
 onMounted(async() => {
   const modules = import.meta.glob('../../constants/question-resolutions/*.ts', { as: 'raw' })
-  shiki.setCDN('/shiki/')
-  const highlighter = await shiki.getHighlighter({
-    theme: 'one-dark-pro',
-    themes: ['one-dark-pro'],
-    langs: ['javascript', 'typescript'],
-  })
-  const html = highlighter.codeToHtml(`${modules[`../../constants/question-resolutions/${questionIndex}.ts`]}`, {
-    lang: 'javascript',
-    theme: 'one-dark-pro',
-  })
-  if (container)
-    container.innerHTML = html
+  shiki.setCDN('/node_modules/shiki/')
+  shiki
+    .getHighlighter({
+      theme: theme as any,
+    })
+    .then((highlighter) => {
+      if (container)
+        container.innerHTML = highlighter.codeToHtml(`${modules[`../../constants/question-resolutions/${questionIndex}.ts`]}`, 'typescript')
+    })
+    .catch(console.warn)
 })
 </script>
 <template>
