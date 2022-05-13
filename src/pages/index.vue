@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import type { LeetCodeQuestion } from '~/constants'
-import { leetCodeQuestions } from '~/constants'
-import { difficultyColor } from '~/constants/difficulty'
+import { difficultyColor, leetCodeQuestions } from '~/constants'
 function formatIndex(index: string) {
   if (parseInt(index) < 10)
     return `NO.00${index}`

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import * as shiki from 'shiki'
 import theme from 'shiki/themes/one-dark-pro.json'
-import { leetCodeQuestions } from '~/constants/questions'
+import { leetCodeQuestions } from '~/constants'
 const container = $ref<HTMLElement | null>(null)
 const route = useRoute()
 const questionIndex = route.params.id
