@@ -8,7 +8,7 @@ const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
 onMounted(async() => {
   const modules = import.meta.glob('../../constants/question-resolutions/*.ts', { as: 'raw' })
-  shiki.setCDN('/node_modules/shiki/')
+  shiki.setCDN('../../../node_modules/shiki/')
   shiki
     .getHighlighter({
       theme: theme as any,
