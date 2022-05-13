@@ -16,6 +16,7 @@ onMounted(async() => {
   shiki
     .getHighlighter({
       theme: theme as any,
+      langs: ['typescript'],
     })
     .then((highlighter) => {
       if (container)
