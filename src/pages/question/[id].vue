@@ -6,11 +6,13 @@ const container = $ref<HTMLElement | null>(null)
 const route = useRoute()
 const questionIndex = route.params.id
 const question = leetCodeQuestions.find(item => item.index === questionIndex)
-let resolution = $ref('')
+let resolutionLines = $ref<Array<string>>([])
 onMounted(async() => {
   const modules = import.meta.glob('../../constants/question-resolutions/*/**.*', { as: 'raw' })
   const code = modules[`../../constants/question-resolutions/${questionIndex}/code.ts`]
-  resolution = modules[`../../constants/question-resolutions/${questionIndex}/resolve.txt`] as any as string
+  const resolution = modules[`../../constants/question-resolutions/${questionIndex}/resolve.txt`] as any as string
+  const totalLines = resolution.split('\n')
+  resolutionLines = totalLines.filter((_, i) => i !== totalLines.length - 1)
   if (import.meta.env.DEV)
     shiki.setCDN('../../../node_modules/shiki/')
   else
@@ -47,7 +49,7 @@ onMounted(async() => {
         <div i-carbon-hurricane mr-2 /> 题解
       </div>
       <div w-800px text-left rounded overflow-hidden bg="#282c34" p4 tracking-wide>
-        <pre>{{ resolution }}</pre>
+        <pre v-for="line in resolutionLines" :key="line" whitespace-pre-line py-2>{{ line }}</pre>
       </div>
       <div my-6 text-xl text-left flex="~" items-center>
         <div i-carbon-code mr-2 /> 代码
@@ -62,5 +64,11 @@ onMounted(async() => {
 <style>
 #code .shiki {
   padding: 1rem;
+  overflow-x: auto;
+}
+
+#code .shiki .line {
+  margin: 4px 0;
+  display: inline-block;
 }
 </style>

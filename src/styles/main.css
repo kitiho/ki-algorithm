@@ -9,3 +9,24 @@ body,
 html.dark {
   background: #121212;
 }
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #000 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #282c34;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #000;
+    border-radius: 10px;
+    border: 6px solid #282c34;
+  }

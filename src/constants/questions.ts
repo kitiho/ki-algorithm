@@ -27,5 +27,23 @@ export const leetCodeQuestions: LeetCodeQuestion[] = [
     difficulty: Difficulty.Hard,
     features: ['贪心'],
   },
+  {
+    index: '435',
+    name: '无重叠区间',
+    englishName: 'Non Overlapping Intervals',
+    desc: '给定多个区间，计算让这些区间互不重叠所需要移除区间的最少个数。起止相连不算重叠。',
+    link: 'https://leetcode.cn/problems/non-overlapping-intervals/',
+    difficulty: Difficulty.Medium,
+    features: ['贪心'],
+  },
+  {
+    index: '605',
+    name: '种花问题',
+    englishName: 'Can Place Flowers',
+    desc: '假设有一个很长的花坛，一部分地块种植了花，另一部分却没有。可是，花不能种植在相邻的地块上，它们会争夺水源，两者都会死去。',
+    link: 'https://leetcode.cn/problems/can-place-flowers/',
+    difficulty: Difficulty.Easy,
+    features: ['贪心'],
+  },
 
 ]

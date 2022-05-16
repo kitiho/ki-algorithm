@@ -8,12 +8,13 @@ function formatIndex(index: string) {
     return `NO.0${index}`
   return `NO.${index}`
 }
+useTitle('Ki-Algorithm')
 const router = useRouter()
 function pushTo(item: LeetCodeQuestion) {
   router.push({
     path: `/question/${item.index}`,
   })
-  useTitle(item.englishName)
+  useTitle(`Ki-${item.englishName}`)
 }
 </script>
 
@@ -28,7 +29,7 @@ function pushTo(item: LeetCodeQuestion) {
       <div flex="~" flex-col w="600px">
         <span text-left mb-1>{{ item.name }} {{ item.englishName }} <span
           :style="`background-color:${difficultyColor[item.difficulty]}`" text-xs font-bold font-italic text-gray-800
-          py-1 px-2 rounded relative bottom-2 right-2
+          py-1 px-2 rounded relative bottom-2 right-2 text-light
         >{{ item.difficulty }}</span></span>
         <div flex="~">
           <div v-for="feature in item.features" :key="feature" rounded p-1 text-xs transition>
