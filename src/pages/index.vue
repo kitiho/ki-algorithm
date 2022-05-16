@@ -26,11 +26,14 @@ function pushTo(item: LeetCodeQuestion) {
       @click="pushTo(item)"
     >
       <span italic mr-4>{{ formatIndex(item.index) }}</span>
-      <div flex="~" flex-col w="600px">
-        <span text-left mb-1>{{ item.name }} {{ item.englishName }} <span
+      <div flex="~" flex-col w="700px">
+        <span text-left mb-1 flex="~" items-center>{{ item.name }} <span mx-2 p-1 text-xs text-left transition>
+          {{ item.englishName }}
+        </span>  <span
           :style="`background-color:${difficultyColor[item.difficulty]}`" text-xs font-bold font-italic text-gray-800
-          py-1 px-2 rounded relative bottom-2 right-2 text-light
+          py-1 px-2 rounded relative bottom-2 text-light h="24px"
         >{{ item.difficulty }}</span></span>
+
         <div flex="~">
           <div v-for="feature in item.features" :key="feature" rounded p-1 text-xs transition>
             #{{ feature }}

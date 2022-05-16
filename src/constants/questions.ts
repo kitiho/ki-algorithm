@@ -45,5 +45,14 @@ export const leetCodeQuestions: LeetCodeQuestion[] = [
     difficulty: Difficulty.Easy,
     features: ['贪心'],
   },
+  {
+    index: '452',
+    name: '用最少数量的箭引爆气球',
+    englishName: 'Minimum Number of Arrows to Burst Balloons',
+    desc: '一支弓箭可以沿着 x 轴从不同点 完全垂直 地射出。在坐标 x 处射出一支箭，若有一个气球的直径的开始和结束坐标为 xstart，xend， 且满足  xstart ≤ x ≤ xend，则该气球会被 引爆 。可以射出的弓箭的数量 没有限制 。 弓箭一旦被射出之后，可以无限地前进。',
+    link: 'https://leetcode.cn/problems/minimum-number-of-arrows-to-burst-balloons/',
+    difficulty: Difficulty.Medium,
+    features: ['贪心'],
+  },
 
 ]
