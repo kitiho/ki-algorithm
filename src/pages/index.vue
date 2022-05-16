@@ -14,7 +14,7 @@ function pushTo(item: LeetCodeQuestion) {
   router.push({
     path: `/question/${item.index}`,
   })
-  useTitle(`Ki-${item.englishName}`)
+  useTitle(`${item.index}.${item.englishName}`)
 }
 </script>
 
