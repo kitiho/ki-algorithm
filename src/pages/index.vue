@@ -39,7 +39,7 @@ function pushTo(item: LeetCodeQuestion) {
             #{{ feature }}
           </div>
         </div>
-        <span text-sm transition truncate w-full>
+        <span text-sm transition truncate w-full text-left>
           {{ item.desc }}
         </span>
       </div>

@@ -33,8 +33,14 @@ onMounted(async() => {
 <template>
   <div>
     <div>
-      <div text-4xl>
-        NO.{{ question?.index }} {{ question?.name }} {{ question?.englishName }}
+      <div text-4xl flex="~" justify-center items-end>
+        <span mr-4 font-mono>NO.{{ question?.index }}</span> <span text-left flex="~" flex-col-reverse>{{ question?.name }} <span
+          p-1 text-sm
+          text-left transition font-mono
+        >
+          {{ question?.englishName }}
+        </span>
+        </span>
       </div>
       <div my-6 text-xl text-left flex="~" items-center>
         <div i-carbon-link mr-2 /> LeetCode链接
