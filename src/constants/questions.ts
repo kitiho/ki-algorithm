@@ -90,5 +90,23 @@ export const leetCodeQuestions: LeetCodeQuestion[] = [
     difficulty: Difficulty.Medium,
     features: ['贪心'],
   },
+  {
+    index: '167',
+    name: '两数之和 II - 输入有序数组',
+    englishName: 'Two Sum II - Input array is sorted',
+    desc: '给你一个下标从 1 开始的整数数组 numbers ，该数组已按 非递减顺序排列  ，请你从数组中找出满足相加之和等于目标数 target 的两个数。如果设这两个数分别是 numbers[index1] 和 numbers[index2] ，则 1 <= index1 < index2 <= numbers.length 。',
+    link: 'https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/',
+    difficulty: Difficulty.Medium,
+    features: ['双指针'],
+  },
+  {
+    index: '88',
+    name: '合并两个有序数组',
+    englishName: ' Merge Sorted Array',
+    desc: '给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。',
+    link: 'https://leetcode.cn/problems/merge-sorted-array/',
+    difficulty: Difficulty.Easy,
+    features: ['双指针'],
+  },
 
 ]
