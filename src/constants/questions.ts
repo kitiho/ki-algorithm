@@ -108,5 +108,23 @@ export const leetCodeQuestions: LeetCodeQuestion[] = [
     difficulty: Difficulty.Easy,
     features: ['双指针'],
   },
+  {
+    index: '142',
+    name: ' 环形链表 II',
+    englishName: 'Linked List Cycle II',
+    desc: '给定一个链表的头节点  head ，返回链表开始入环的第一个节点。 如果链表无环，则返回 null。',
+    link: 'https://leetcode.cn/problems/linked-list-cycle-ii/',
+    difficulty: Difficulty.Medium,
+    features: ['双指针'],
+  },
+  {
+    index: '76',
+    name: '最小覆盖子串',
+    englishName: 'Minimum Window Substring',
+    desc: '给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。',
+    link: 'https://leetcode.cn/problems/minimum-window-substring/',
+    difficulty: Difficulty.Hard,
+    features: ['双指针', '滑动窗口'],
+  },
 
 ]
