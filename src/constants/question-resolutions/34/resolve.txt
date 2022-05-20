@@ -1,0 +1,3 @@
+二分查找经典题。
+参考红蓝二分模版！
+https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/solution/lan-hong-hua-fen-fa-dan-mo-ban-miao-sha-e7r40/

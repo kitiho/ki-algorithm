@@ -1,0 +1,5 @@
+左右两个区间，满足二段性。
+左右两端点相等时，可以把右边去掉，r--，来满足二段性。
+再用二分模板。
+【宫水三叶题解】
+https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array-ii/solution/gong-shui-san-xie-xiang-jie-wei-he-yuan-7xbty/
